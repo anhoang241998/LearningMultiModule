@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.annguyenhoang.calorietracker"
-    compileSdk = 34
+    compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.annguyenhoang.calorietracker"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfig.appId
+        minSdk = ProjectConfig.minSdk
+        targetSdk = ProjectConfig.targetSdk
+        versionCode = ProjectConfig.versionCode
+        versionName = ProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -23,14 +23,15 @@ android {
     }
 
     buildTypes {
-        release {
+        named("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_18
         targetCompatibility = JavaVersion.VERSION_18
+
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "18"
@@ -39,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
+        kotlinCompilerExtensionVersion = Compose.composeCompiler
     }
     packaging {
         resources {
@@ -49,10 +50,14 @@ android {
 }
 
 dependencies {
-
-    androidxCore()
-    unitWithUiTest()
-    androidLifeCycle()
     compose()
     daggerHilt()
+    androidxCore()
+    allModules()
+    coil()
+    material()
+    retrofit()
+    room()
+    unitWithUiTest()
+    coreLibraryDesugaring(Desugar.desugarJdk)
 }

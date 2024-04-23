@@ -1,5 +1,3 @@
-import org.gradle.api.artifacts.dsl.DependencyHandler
-
 object Build {
     private const val androidBuildToolsVersion = "8.3.2"
     const val androidBuildTools = "com.android.tools.build:gradle:$androidBuildToolsVersion"
@@ -8,10 +6,4 @@ object Build {
 
     private const val hiltAndroidGradlePluginVersion = "2.51.1"
     const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$hiltAndroidGradlePluginVersion"
-}
-
-fun DependencyHandler.buildToolsWithKotlin() {
-    classpath(Build.androidBuildTools)
-    classpath(Build.kotlinGradlePlugin)
-    classpath(Build.hiltAndroidGradlePlugin)
 }

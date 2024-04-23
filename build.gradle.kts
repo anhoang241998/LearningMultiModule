@@ -5,6 +5,8 @@ buildscript {
     }
 
     dependencies {
-        buildToolsWithKotlin()
+        classpath(Build.androidBuildTools)
+        classpath(Build.kotlinGradlePlugin)
+        classpath(Build.hiltAndroidGradlePlugin)
     }
 }

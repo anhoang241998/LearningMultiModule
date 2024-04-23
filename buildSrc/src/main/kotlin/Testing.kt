@@ -1,8 +1,10 @@
+import org.gradle.api.artifacts.dsl.DependencyHandler
+
 object Testing {
     private const val junitVersion = "4.13.2"
     const val junit4 = "junit:junit:$junitVersion"
 
-    private const val junitAndroidExtVersion = "1.1.3"
+    private const val junitAndroidExtVersion = "1.1.5"
     const val junitAndroidExt = "androidx.test.ext:junit:$junitAndroidExtVersion"
 
     private const val coroutinesTestVersion = "1.5.1"
@@ -25,4 +27,27 @@ object Testing {
 
     private const val testRunnerVersion = "1.4.0"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
+
+    // test
+    private const val espressoCore = "3.5.1"
+    const val androidxEspressoCore = "androidx.test.espresso:espresso-core:$espressoCore"
+}
+
+fun DependencyHandler.unitWithUiTest() {
+    test(Testing.junit4)
+    test(Testing.junitAndroidExt)
+    test(Testing.truth)
+    test(Testing.coroutines)
+    test(Testing.turbine)
+    test(Testing.mockk)
+    test(Testing.mockWebServer)
+
+    androidTest(Testing.junit4)
+    androidTest(Testing.junitAndroidExt)
+    androidTest(Testing.truth)
+    androidTest(Testing.coroutines)
+    androidTest(Testing.turbine)
+    androidTest(Testing.mockk)
+    androidTest(Testing.mockWebServer)
+    androidTest(Testing.androidxEspressoCore)
 }
