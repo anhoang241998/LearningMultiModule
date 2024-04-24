@@ -11,5 +11,6 @@ android {
 
 dependencies {
     coreModule()
+    coreUiModule()
     onboardingDomainModule()
 }

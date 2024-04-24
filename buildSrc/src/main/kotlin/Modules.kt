@@ -5,6 +5,7 @@ object Modules {
     const val app = ":app"
 
     const val core = ":core"
+    const val coreUi = ":core-ui"
 
     const val onboardingDomain = ":onboarding:onboarding_domain"
     const val onboardingPresentation = ":onboarding:onboarding_presentation"
@@ -16,6 +17,10 @@ object Modules {
 
 fun DependencyHandler.coreModule() {
     implementation(project(Modules.core))
+}
+
+fun DependencyHandler.coreUiModule() {
+    implementation(project(Modules.coreUi))
 }
 
 fun DependencyHandler.onboardingDomainModule() {
@@ -40,6 +45,7 @@ fun DependencyHandler.trackerPresentationModule() {
 
 fun DependencyHandler.allModules() {
     coreModule()
+    coreUiModule()
     onboardingDomainModule()
     onboardingPresentationModule()
     trackerDataModule()

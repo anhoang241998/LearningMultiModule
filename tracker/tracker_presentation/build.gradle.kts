@@ -11,6 +11,7 @@ android {
 
 dependencies {
     coreModule()
+    coreUiModule()
     trackerDomainModule()
     coil()
 }
