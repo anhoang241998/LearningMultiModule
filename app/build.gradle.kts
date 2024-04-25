@@ -61,3 +61,7 @@ dependencies {
     unitWithUiTest()
     coreLibraryDesugaring(Desugar.desugarJdk)
 }
+
+hilt {
+    enableAggregatingTask = false
+}
