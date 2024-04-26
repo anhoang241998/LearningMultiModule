@@ -58,4 +58,7 @@ dependencies {
     androidTestImplementation Testing.mockWebServer
     androidTestImplementation Testing.hiltTesting
     coreLibraryDesugaring Desugar.desugarJdk
+
+    testImplementation 'org.objenesis:objenesis:3.2'
+    androidTestImplementation 'org.objenesis:objenesis:3.2'
 }

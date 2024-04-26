@@ -60,6 +60,9 @@ dependencies {
     room()
     unitWithUiTest()
     coreLibraryDesugaring(Desugar.desugarJdk)
+
+    testImplementation("org.objenesis:objenesis:3.2")
+    androidTestImplementation("org.objenesis:objenesis:3.2")
 }
 
 hilt {
