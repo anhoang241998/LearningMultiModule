@@ -26,7 +26,7 @@ import com.annguyenhoang.onboarding_presentation.components.UnitTextField
 @Composable
 fun HeightScreen(
     scaffoldState: SnackbarHostState,
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: HeightViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
@@ -35,7 +35,7 @@ fun HeightScreen(
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.showSnackbar(
                         message = event.message.asString(context)

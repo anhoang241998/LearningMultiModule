@@ -21,7 +21,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.annguyenhoang.core.R
 import com.annguyenhoang.core.domain.model.ActivityLevel
-import com.annguyenhoang.core.domain.model.Gender
 import com.annguyenhoang.core.util.UiEvent
 import com.annguyenhoang.core_ui.LocalSpacing
 import com.annguyenhoang.onboarding_presentation.components.ActionButton
@@ -29,7 +28,7 @@ import com.annguyenhoang.onboarding_presentation.components.SelectableButton
 
 @Composable
 fun ActivityScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: ActivityViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
@@ -37,7 +36,7 @@ fun ActivityScreen(
     LaunchedEffect(true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }

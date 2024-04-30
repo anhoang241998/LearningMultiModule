@@ -12,8 +12,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.annguyenhoang.core_ui.BrightGreen
+import com.annguyenhoang.core_ui.DarkGray
+import com.annguyenhoang.core_ui.DarkGreen
 import com.annguyenhoang.core_ui.Dimensions
+import com.annguyenhoang.core_ui.LightGray
 import com.annguyenhoang.core_ui.LocalSpacing
+import com.annguyenhoang.core_ui.MediumGray
+import com.annguyenhoang.core_ui.Orange
+import com.annguyenhoang.core_ui.TextWhite
 
 private val DarkColorScheme = darkColorScheme(
     primary = BrightGreen,
